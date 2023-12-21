@@ -41,7 +41,7 @@ function DoubleDroppableTest() {
         onDragEnd={() => {}}
         onDragStart={() => {}}
       >
-        <div style={{backgroundColor: 'blue', width: '300px', height: '100vh'}}>
+        <DroppablesContainer>
           <div>
             <Droppable
               droppableId="TOOLS1"
@@ -126,7 +126,7 @@ function DoubleDroppableTest() {
               ) }
             </Droppable>
           </div>
-        </div>
+        </DroppablesContainer>
       </DragDropContext>
     </>
   );
@@ -134,20 +134,24 @@ function DoubleDroppableTest() {
 
 export default DoubleDroppableTest;
 
+const DroppablesContainer = styled.div`
+  display: flex;
+  background-color: blue;
+  width: 300px;
+  height: 100vh;
+`
+
 export const StyledToolContainer = styled.div`
     display: flex;
     flex-direction: column;
 `;
 
 export const StyledTool = styled.div`
-    width: 100px;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    background-color: white;
-    // change image for drag tool component
-    // width: ${(props) => (props.isDragging ? "0px" : "90%")};
-    // background-color: ${(props) => (props.isDragging ? "skyblue" : "white")};
-    // border: ${(props) => (props.isDragging ? "1px dashed" : "1px solid")};
+  width: 100px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: ${(props) => (props.isDragging && "3px dashed yellow")};
 `;
 export const StyledToolClone = styled(StyledTool)`
     ~ div {

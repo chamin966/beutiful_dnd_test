@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Fragment} from "react";
 import NavigationButton from "../components/navigationButton";
 
-const ITEMS1 = [
+const ITEMS = [
   {
     id: 'a',
     name: 'armin1111'
@@ -15,10 +15,7 @@ const ITEMS1 = [
   {
     id: 'c',
     name: 'armin333'
-  }
-]
-
-const ITEMS2 = [
+  },
   {
     id: 'd',
     name: 'armin444'
@@ -46,13 +43,14 @@ function FlexBoxTest() {
             <Droppable
               droppableId="TOOLS1"
               isDropDisabled={true}
+              // direction={'horizon'}
             >
               {(provided) => (
                 <StyledToolContainer
                   ref={provided.innerRef}
                 >
                   {
-                    ITEMS1.map((tool, toolIndex) => {
+                    ITEMS.map((tool, toolIndex) => {
                       return (
                         <Draggable
                           key={tool.id}
@@ -94,22 +92,21 @@ function FlexBoxTest() {
 export default FlexBoxTest;
 
 export const StyledToolContainer = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  //flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const StyledTool = styled.div`
-    width: 100px;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    background-color: white;
-    // change image for drag tool component
-    // width: ${(props) => (props.isDragging ? "0px" : "90%")};
-    // background-color: ${(props) => (props.isDragging ? "skyblue" : "white")};
-    // border: ${(props) => (props.isDragging ? "1px dashed" : "1px solid")};
+  width: 100px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: ${(props) => (props.isDragging && "3px dashed yellow")};
 `;
 export const StyledToolClone = styled(StyledTool)`
-    ~ div {
-        transform: none !important;
-    }
+  ~ div {
+      transform: none !important;
+  }
 `;

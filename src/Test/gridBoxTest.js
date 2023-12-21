@@ -32,7 +32,7 @@ const ITEMS = [
 function GridBoxTest() {
   // 자신의 자리로 돌아가지 않고
   // <Droppable direction={'vertical'} /> 시 자신 앞 순서로,
-  // <Droppable direction={'vertical'} /> 시 자신 뒤 순서의 요소로 드랍된다.
+  // <Droppable direction={'horizon'} /> 시 자신 뒤 순서의 요소로 드랍된다.
   return (
     <>
       <NavigationButton path={'/'} naem={'Home'}/>
