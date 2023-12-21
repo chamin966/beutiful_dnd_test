@@ -43,7 +43,7 @@ function BasicDndTest() {
           isDropDisabled={true}
         >
           {(provided) => (
-            <StyledBasicToolContainer
+            <StyledToolContainer
               ref={provided.innerRef}
             >
               {
@@ -67,7 +67,7 @@ function BasicDndTest() {
                     </Draggable>);
                 } ) }
               {provided.placeholder}
-            </StyledBasicToolContainer>
+            </StyledToolContainer>
           ) }
         </Droppable>
       </DragDropContext>
@@ -76,7 +76,3 @@ function BasicDndTest() {
 }
 
 export default BasicDndTest;
-
-const StyledBasicToolContainer = styled(StyledToolContainer)`
-  background-color: cornflowerblue;
-`

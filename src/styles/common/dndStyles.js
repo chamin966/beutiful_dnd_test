@@ -19,6 +19,7 @@ export const StyledTool = styled.div`
   background-color: white;
   box-shadow: ${(props) => (props.isDragging && "0 0 0 3px blue")};
 `;
+
 export const StyledToolClone = styled(StyledTool)`
     ~ div {
       //드래그한 엘리먼트의 빈자리를 채우지 않도록 드래그한 엘리먼트 아래를 움직이지 않게 해야함
