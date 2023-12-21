@@ -2,6 +2,7 @@ import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import styled from "styled-components";
 import {Fragment} from "react";
 import NavigationButton from "../components/navigationButton";
+import {StyledTool, StyledToolClone, StyledToolContainer} from "../styles/common/dndStyles";
 
 const ITEMS1 = [
   {
@@ -48,7 +49,7 @@ function DoubleDroppableTest() {
               isDropDisabled={true}
             >
               {(provided) => (
-                <StyledToolContainer
+                <div
                   ref={provided.innerRef}
                 >
                   {
@@ -66,8 +67,7 @@ function DoubleDroppableTest() {
                                 {...provided.draggableProps}
                                 {...provided.dragHandleProps}
                                 isDragging={snapshot.isDragging}
-                                style={{backgroundColor: 'green', ...provided.draggableProps.style}}
-                                onClick={(e) => {}}
+                                style={{backgroundColor: 'darkseagreen', ...provided.draggableProps.style}}
                               >
                                 <div>{tool.name}</div>
                                 {/* change image for drag tool component > { snapshot.isDragging ? tempToolContent1 : tempToolContent2 }*/}
@@ -80,7 +80,7 @@ function DoubleDroppableTest() {
                         </Draggable>);
                     } ) }
                   {provided.placeholder}
-                </StyledToolContainer>
+                </div>
               ) }
             </Droppable>
           </div>
@@ -90,7 +90,7 @@ function DoubleDroppableTest() {
               isDropDisabled={true}
             >
               {(provided) => (
-                <StyledToolContainer
+                <div
                   ref={provided.innerRef}
                 >
                   {
@@ -108,8 +108,7 @@ function DoubleDroppableTest() {
                                 {...provided.draggableProps}
                                 {...provided.dragHandleProps}
                                 isDragging={snapshot.isDragging}
-                                style={{backgroundColor: 'red', ...provided.draggableProps.style}}
-                                onClick={(e) => {}}
+                                style={{backgroundColor: 'indianred', ...provided.draggableProps.style}}
                               >
                                 <div>{tool.name}</div>
                                 {/* change image for drag tool component > { snapshot.isDragging ? tempToolContent1 : tempToolContent2 }*/}
@@ -122,7 +121,7 @@ function DoubleDroppableTest() {
                         </Draggable>);
                     } ) }
                   {provided.placeholder}
-                </StyledToolContainer>
+                </div>
               ) }
             </Droppable>
           </div>
@@ -134,27 +133,8 @@ function DoubleDroppableTest() {
 
 export default DoubleDroppableTest;
 
-const DroppablesContainer = styled.div`
-  display: flex;
-  background-color: blue;
-  width: 300px;
-  height: 100vh;
+const DroppablesContainer = styled(StyledToolContainer)`
+  flex-direction: row;
+  // 클론 생성 시 높이 커지는 문제 해결 가능
+  //max-height: 137px;
 `
-
-export const StyledToolContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
-export const StyledTool = styled.div`
-  width: 100px;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  background-color: white;
-  border: ${(props) => (props.isDragging && "3px dashed yellow")};
-`;
-export const StyledToolClone = styled(StyledTool)`
-    ~ div {
-        transform: none !important;
-    }
-`;
