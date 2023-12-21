@@ -1,6 +1,6 @@
 import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import styled from "styled-components";
-import {Fragment} from "react";
+import NavigationButton from "../components/navigationButton";
 
 const ITEMS1 = [
   {
@@ -31,48 +31,51 @@ const ITEMS1 = [
 
 function DndTest() {
   return (
-    <DragDropContext
-      onDragEnd={() => {}}
-      onDragStart={() => {}}
-    >
-      <Droppable
-        droppableId="TOOLS1"
-        isDropDisabled={true}
+    <>
+      <NavigationButton path={'/'} name={'Home'}/>
+      <DragDropContext
+        onDragEnd={() => {}}
+        onDragStart={() => {}}
       >
-        {(provided) => (
-          <StyledToolContainer
-            ref={provided.innerRef}
-          >
-            {
-              ITEMS1.map((tool, toolIndex) => {
-                return (
-                  <Draggable
-                    key={tool.id}
-                    draggableId={tool.id}
-                    index={toolIndex}
-                  >
-                    {(provided, snapshot) => (
-                      <>
-                        <StyledTool
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          isDragging={snapshot.isDragging}
-                        >
-                          <div>{tool.name}</div>
-                        </StyledTool>
-                        {snapshot.isDragging && (
-                          <StyledToolClone>{tool.name + 'Clone'}</StyledToolClone>
-                        )}
-                      </>
-                    )}
-                  </Draggable>);
-              } ) }
-            {provided.placeholder}
-          </StyledToolContainer>
-        ) }
-      </Droppable>
-    </DragDropContext>
+        <Droppable
+          droppableId="TOOLS1"
+          isDropDisabled={true}
+        >
+          {(provided) => (
+            <StyledToolContainer
+              ref={provided.innerRef}
+            >
+              {
+                ITEMS1.map((tool, toolIndex) => {
+                  return (
+                    <Draggable
+                      key={tool.id}
+                      draggableId={tool.id}
+                      index={toolIndex}
+                    >
+                      {(provided, snapshot) => (
+                        <>
+                          <StyledTool
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            isDragging={snapshot.isDragging}
+                          >
+                            <div>{tool.name}</div>
+                          </StyledTool>
+                          {snapshot.isDragging && (
+                            <StyledToolClone>{tool.name + 'Clone'}</StyledToolClone>
+                          )}
+                        </>
+                      )}
+                    </Draggable>);
+                } ) }
+              {provided.placeholder}
+            </StyledToolContainer>
+          ) }
+        </Droppable>
+      </DragDropContext>
+    </>
   );
 }
 
