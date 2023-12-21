@@ -9,8 +9,8 @@ import CombinatorTest from "./Test/combinatorTest";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <App />
-  // <DndTest/>
-  <CombinatorTest/>
+  <DndTest/>
+  // <CombinatorTest/>
 );
 
 // If you want to start measuring performance in your app, pass a function
