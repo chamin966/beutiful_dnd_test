@@ -9,11 +9,11 @@ import DndModuleTest from "./Test/dndModuleTest";
 
 export const routes = [
   { path: '/', name: 'Home', element: <Home/> },
+  { path: '/CombinatorTest', name: 'CombinatorTest', element: <CombinatorTest/> },
   { path: '/BasicDndTest', name: 'BasicDndTest', element: <BasicDndTest/> },
-  { path: '/DoubleDroppableTest', name: 'DoubleDroppableTest', element: <DoubleDroppableTest/> },
   { path: '/GridBoxTest', name: 'GridBoxTest', element: <GridBoxTest/> },
   { path: '/FlexBoxTest', name: 'FlexBoxTest', element: <FlexBoxTest/> },
-  { path: '/CombinatorTest', name: 'CombinatorTest', element: <CombinatorTest/> },
+  { path: '/DoubleDroppableTest', name: 'DoubleDroppableTest', element: <DoubleDroppableTest/> },
   { path: '/DndModuleTest', name: 'DndModuleTest', element: <DndModuleTest/> },
 ];
 
