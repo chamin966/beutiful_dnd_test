@@ -1,10 +1,11 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./Home";
-import BasicDndTest from "./Test/BasicDndTest";
+import BasicDndTest from "./Test/basicDndTest";
 import DoubleDroppableTest from "./Test/doubleDroppableTest";
 import GridBoxTest from "./Test/gridBoxTest";
 import FlexBoxTest from "./Test/flexboxTest";
 import CombinatorTest from "./Test/combinatorTest";
+import DndModuleTest from "./Test/dndModuleTest";
 
 export const routes = [
   { path: '/', name: 'Home', element: <Home/> },
@@ -13,6 +14,7 @@ export const routes = [
   { path: '/GridBoxTest', name: 'GridBoxTest', element: <GridBoxTest/> },
   { path: '/FlexBoxTest', name: 'FlexBoxTest', element: <FlexBoxTest/> },
   { path: '/CombinatorTest', name: 'CombinatorTest', element: <CombinatorTest/> },
+  { path: '/DndModuleTest', name: 'DndModuleTest', element: <DndModuleTest/> },
 ];
 
 function Router() {

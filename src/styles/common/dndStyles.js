@@ -8,8 +8,16 @@ export const StyledToolContainer = styled.div`
   justify-content: center;
   
   // 클론 생성 시 높이 커지는 문제 해결 가능
-<!--  max-height: 153px;-->
-  <!--<Droppable>의 direction 속성을 vertical(default), horizon 으로 엘리먼트 흐름의 방향을 조절하면 자연스럽게 움직임-->
+  // max-height: 153px;
+  // <Droppable>의 direction 속성을 vertical(default), horizon 으로 엘리먼트 흐름의 방향을 조절하면 자연스럽게 움직임
+`;
+
+export const StyledDropRowsContainer = styled.div`
+  display: flex;
+`;
+
+export const StyledDropContainer = styled(StyledToolContainer)`
+  width: auto;
 `;
 
 export const StyledTool = styled.div`
